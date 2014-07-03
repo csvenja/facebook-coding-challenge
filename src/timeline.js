@@ -1,6 +1,6 @@
-/* global Mustache:false */
+/* global Mustache:false, $:false */
 
-(function () {
+$(function () {
 	"use strict";
 
 	var start = 9;
@@ -20,4 +20,4 @@
 			$("#timeline").append(html);
 		}
 	}
-}());
+});
