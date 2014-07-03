@@ -9,14 +9,17 @@
 	<div id="wrapper" class="clearfix">
 		<div id="timeline"></div>
 		<div id="calendar">
-			<div id="events">
-				<div class="event">
-					<dt>Sample Item</dt>
-					<dd>Sample Location</dd>
+			<script id="eventTemplate" type="x-tmpl-mustache">
+				<div class="event" style="top:{{ top }}px; height:{{ height }}px; width:{{ width }};">
+					<dt>{{ title }}</dt>
+					<dd>{{ location }}</dd>
 				</div>
+			</script>
+			<div id="events">
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="src/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="src/mustache.js"></script>
 	<script type="text/javascript" src="src/layOutDay.js"></script>
 	<script type="text/javascript" src="src/timeline.js"></script>
