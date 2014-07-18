@@ -3,7 +3,7 @@
 
 function layOutDay(events) {
 	var slot = new Slot();
-	var i, j, added;
+	var i, j, n, added;
 	var eventObject = [];
 	var eventList = $("#events");
 	$("#events").empty();
@@ -13,8 +13,9 @@ function layOutDay(events) {
 	}
 
 	eventObject.sort(sortEvents);
+	n = eventObject.length;
 
-	for (i in eventObject) {
+	for (i = 0; i < n; i++) {
 		if (eventObject[i].start >= slot.latest) {
 			slot.clean();
 			slot.addSlot();
@@ -37,7 +38,7 @@ function layOutDay(events) {
 	}
 	slot.clean();
 
-	for (i in eventObject) {
+	for (i = 0; i < n; i++) {
 		eventList.append(eventObject[i].getHTML());
 	}
 }
@@ -50,8 +51,11 @@ function Slot() {
 
 Slot.prototype.clean = function () {
 	var totalSlots = this.end.length;
-	for (var i in this.member) {
-		for (var j in this.member[i]) {
+	var i, j,
+		n = this.member.length, m;
+	for (i = 0; i < n; i++) {
+		m = this.member[i].length;
+		for (j = 0; j < m; j++) {
 			this.member[i][j].slotIndex = i;
 			this.member[i][j].totalSlots = totalSlots;
 		}
